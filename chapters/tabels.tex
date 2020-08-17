@@ -1,0 +1,28 @@
+
+\chapter{Tabellen}
+Tabellen in LaTeX sind relativ umständlich händisch zu erstellen. Zum Glück gibt es aber Alternativen, welche einem deutlich erleichtern schöne Tabellen zu erstellen.
+\begin{itemize}
+    \item \url{https://www.tablesgenerator.com/#}
+    \item Plugins für Excel (Excel2Latex)
+    \item Stata Pakete (estout)
+\end{itemize}
+
+Beispiel für eine einfache Tabelle:
+\begin{table}[h]
+\centering
+\caption{Ergebnisse}
+\label{tab:easy_table}
+\begin{tabular}{l|lll|lll}
+\hline\hline \multicolumn{4}{l}{} \\ [-10pt]
+Datensatz & \multicolumn{3}{c|}{Trainingsdatensatz} & \multicolumn{3}{c}{Testsdatensatz} \\
+Modelle &                \multicolumn{1}{c}{ $N$} &     RMSE &      MAE &           \multicolumn{1}{c}{ $N$}&      RMSE &      MAE \\
+\midrule
+Fix-Effekt              &           2.040.264 & 66,189     &     27,822 &    679.821 & 67,029 & 27,877 \\
+Gradient Boost    &           2.210.146 & 5,9302     &     3,3176 &    736.716 & 10,442 &  3,8284 \\
+\hline\hline 
+\end{tabular}
+
+\end{table}
+
+Ein Vorteil von Latex ist, dass man mit dem Befehl \emph{ \textbackslash ref\{ Label\} } auf jede Tabelle verweisen kann. Ein solcher Verweis ruft automatisch die aktuelle Nummer der Tabelle auf \ref{tab:easy_table} und verlinkt diese mit der Tabelle.\\
+Es kann Sinn machen Tabellen in getrennten Dateien abzulegen. Somit hat man die Möglichkeit diese durch ein Programm, zum Beispiel Stata, direkt zu überschreiben und die aktuellste Tabelle wird direkt in euer LaTeX Dokument eingebunden.
