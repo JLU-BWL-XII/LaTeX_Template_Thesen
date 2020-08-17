@@ -1,4 +1,4 @@
-# LaTeX Vorlage
+# LaTeX Vorlage für Thesen
 ### Professur für Digitaliserung, E-Buisness und Operations Management
 Liebe Studierende im folgenden finden Sie die LaTeX Vorlage für das wissenschaftliche Arbeiten an der Professur BWL XII.   
 
