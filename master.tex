@@ -1,0 +1,158 @@
+% ------------------------------------------------------------------------
+% Template zur Erstellung von Abschlussarbeiten an der Professur für
+% Digitalisierung, E-Business und Operations Management
+% Erstellerin: Jella Pfeiffer
+% Datum 08.10.2019
+% Überarbeitet von Pascal Heßler am 13.08.2020
+% ------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------
+% Allgemeine Einstellungen
+% ------------------------------------------------------------------------
+\documentclass[
+    12pt,
+    paper=a4,
+    headings=small,               % kleinere Überschriften
+    twoside=false,                % einseitig, nur rechte Seiten
+    listof=totoc,                 % Listen im Inhaltsverzeichnis aufnehmen
+    bibliography=totoc,           % Literaturverzeichnis ins Inhltsvz. aufnehmen
+    headsepline                   % Trennlinie unter Kopfzeile
+    ]{scrbook}
+
+\usepackage[paper=a4paper,left=30mm,right=30mm,top=40mm,bottom=40mm]{geometry}
+\usepackage[utf8]{inputenc}       % Damit können Umlaute ganz normal geschrieben werden.
+\usepackage[english]{babel}       % Verwende deutsche, bzw. amerikanische Silbentrennung
+%\usepackage[ngerman]{babel}      % Deutsche Alternative
+\usepackage{scrlayer-scrpage}     % Paket für Kopf und Fußzeile. Kommentar: "scrpage2" veraltet in "scrlayer-scrpage" geändert
+\pagestyle{scrheadings}           % Kopzeilenseitenstil
+\usepackage{setspace}             % Zeilenabstand imlpementiert den Befehl 
+% ------------------------------------------------------------------------
+% Literatur
+% ------------------------------------------------------------------------
+% Achtung zur Einbindung der Literatur wird hier Biber verwendet und nich der Standard BibTex. In Sublime bracu man nichts verändern.
+% 1. Sicherstellen, dass Biber installiert ist ->  in Tex Live vorinstalliert
+% 2. Stellt eure Schreibumgebung um -> In TeXstudio: Optionen -> TeXstudio konfigurieren -> Erzeugen -> Standard Bibliographieprogramm
+\usepackage[backend=biber,style=apa,natbib=true]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}         % Sprach Einstellung
+%\DeclareLanguageMapping{ngerman}{ngerman-apa}          % Deutsche Alternative
+\addbibresource{BibliographieAbschlussarbeit.bib}       % Legt die Datei fest in der die Literatur liegt (z. B.: Export aus Citavi)
+\usepackage{breakcites}                                 % Falls Zitationen nicht ans Zeilenende passen
+\usepackage{csquotes}                                   % Erweitert die Möglichkeiten beim zitieren
+% ------------------------------------------------------------------------
+% Mathematische Symbole
+% ------------------------------------------------------------------------
+\usepackage{amssymb}
+\usepackage{amsmath}        % Formattierung von Tabellen und Matritzen
+\usepackage{amsfonts}
+
+% ------------------------------------------------------------------------
+% Grafiken
+% ------------------------------------------------------------------------
+\usepackage{graphicx}       % Zum Einbinden von Grafiken
+\usepackage{subfigure}      % Um Bilder innerhalb einer Figure anzuordnen (Bild a b c d...)
+
+% ------------------------------------------------------------------------
+% Tabellen
+% Um einfache Tabellen zu erstellen kann https://www.tablesgenerator.com/ verwendet werden.
+% ------------------------------------------------------------------------
+\usepackage{tabularx}       % Ermöglicht weitere Tabellen Einstellungen
+\usepackage{multirow}       % Ermöglicht Zellen zu verbinden
+\usepackage{booktabs}       % Tabellen Midline Topline etc.
+\usepackage{float}          % Tabelen Positionierung
+\usepackage{longtable}      % Ermöglicht Tabellen über mehrere Seiten hinweg, so dass sie noch dasselbe Format besitzten ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/required/tools/longtable.pdf
+% **********************************************************************************************************************
+% Folgende Pakete sind rein optional und etwas komplexer in ihrer Umsetzung nur für etwas erfahrenere LaTeX User
+% **********************************************************************************************************************
+% \usepackage{siunitx}      % Ausrichten von Tabellen an dezimalstellen (Umsetzung etwas komplizierter)
+% \usepackage{rccol}        % Ein Neues Format R (wird wahrscheinlich mit dem Folgenden R zu Problemen führen) und sorgt, dass nach , ausgerichtet wird und automatisches runden in Tabellen wird ermöglicht
+% \usepackage{fltpoint}     % Gehört zu rccol
+% \usepackage{dcolumn}      % Gehört zu rccol
+%
+% \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}       % Linksbündig mit Breitenangabe
+% \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}         % Zentriert mit Breitenangabe
+% \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}        % Rechtsbündig mit Breitenangabe
+% \newcolumntype{x}[1]{!{\centering\arraybackslash\vrule width #1}}
+
+% ------------------------------------------------------------------------
+% Sonstige
+% ------------------------------------------------------------------------
+\usepackage{scrhack}        % Löst unnötige Warnungen!
+\usepackage{color}          % Ermöglicht Text einzufärben \pagecolor{FARBE}  \color{FARBE} \textcolor{FARBE}{TEXT} \colorbox{FARBE}{TEXT}
+\usepackage{hyperref}       % Ermöglicht URLS schreibweise ist z.B. \url{http://www.uni-giessen.de}
+
+\usepackage{eurosym}        % Für Euro Symbol \euro{} oder \eruo (Unterschieden sich bezüglich Leerzeichen danach)
+
+\usepackage{framed}         % Einrahmen von Texten mit der shaded-Umgebung.
+
+\usepackage{pdflscape}      % Querformat möglich über \begin{landscape} \end{landscape}
+% ------------------------------------------------------------------------
+% Fein Justierungen
+% ------------------------------------------------------------------------
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\renewcommand{\floatpagefraction}{.9}     % vorher: .5
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+%\setlength{\parindent}{0pt}                    % Kein Einzug beim Absatzbegin
+\setlength{\parskip}{1pt plus 0pt minus 1pt}    % Abstand zwischen 2 Absätzen
+
+
+% Kapitel Überschriften in Schriftart mit Serifen
+\setkomafont{sectioning}{\normalfont\normalcolor\bfseries}
+% Gestaltung der Kopfzeilen
+\ohead{\pagemark} \cfoot{} \cohead{} \ihead{\headmark}
+\setkomafont{pagehead}{\normalfont\bfseries}
+%\setkomafont{pagenumber}{\normalfont\bfseries} \automark{section}
+
+\hypersetup{hidelinks}                 % Versteckt die Links im PDF (optisch)
+% ----- ende der präambel ----------------------------------
+% Start des Dokuments
+% ----------------------------------------------------------
+\begin{document} 
+\frontmatter                           % Corspann, Kapitel römisch nummeriert
+
+\include{chapters/titel}               % Titelseite einbinden
+\tableofcontents                       % Fügt Inhaltsverzeichnis ein
+\include{chapters/keywords}            % Fügt Stichwortverzeichnis ein    (nur wenn nötig)
+\listoffigures                         % Fügt Abbildungsverzeichnis ein   (nur wenn nötig)
+\listoftables                          % Fügt Tabellenverzeichnis ein     (nur wenn nötig)
+\include{chapters/abbreviations}       % Beispiel eines handerstellten Verzeichnisses Kommentar: Abkürzungsverzeichnisse können auch über \usepackage[acronyms, shortcuts, translate=babel, nomain]{glossaries} generiert werden.
+
+% ------------------------------------------------------------------------
+% Hauptarbeit (hier werden alle Kapitel eingebunden)
+% ------------------------------------------------------------------------
+\mainmatter                            % Hauptteil, Kapitel lateinisch nummeriert
+\onehalfspacing
+% Theoretisch kann man auch alles in einem Dokument haben. Das ist jedoch unübersichtlich. Daher werden hier die einzelnen Kapitel eingebunden.
+\include{chapters/introduction}
+\include{chapters/figurestables}
+\include{chapters/combinatorialAuctions}
+\include{chapters/conclusion}
+% ------------------------------------------------------------------------
+% Hauptarbeit ENDE
+% ------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------
+% Erstellen des Literaturverzeichnisses
+% ------------------------------------------------------------------------
+\printbibliography[heading=bibintoc]  
+% ------------------------------------------------------------------------
+% Einbinden des Anhangs
+% ------------------------------------------------------------------------
+\appendix                               % Kapitel werden ab hier Alphabetisch aufgenommen
+\include{chapters/appendix}
+% ------------------------------------------------------------------------
+% Einbinden der Eidesstaatlichen Erklärung
+% ------------------------------------------------------------------------
+\backmatter                             % Ab hier wird nichts mehr ins Inhaltsverzeichnis aufgenommen
+\include{chapters/erklaerung}
+
+\end{document}
+% ----------------------------------------------------------
+% Ende
+% ----------------------------------------------------------

@@ -1,0 +1,209 @@
+\chapter{Combinatorial Auctions}
+ \label{chap:combinatorialAuctions}
+
+Die ist der Ausschnitt eines Beispielkapitels.
+
+\emph{Combinatorial auctions} (CAs) are a part of electronic
+market design. Research in electronic market design joins two
+disciplines: economics and computer science. Economical research
+focuses on game theoretical aspects by analyzing strategic
+behavior of self-interested agents. From the viewpoint of computer
+science, computational problems are addressed, such as finding the
+optimal allocation in auctions. As this work concentrates on
+computational aspects, we assume that the reader has a stronger
+background in computer science than in economics. Thus, in this
+chapter we will point out the main ideas of the economical
+perspective to provide some basic knowledge in this area.
+
+\section{Mechanism Design}
+\subsection{Definition}
+Mechanism design was introduced by \textcite{Hu60}. It
+aims at implementing system-wide solutions to problems in
+non-cooperative environments with multiple self-interested agents.
+Such problems can be political elections, public projects in which
+the participants themselves have to invest money, or allocation
+problems. Given that agents hold only private information about
+their preferences, a structure has to be chosen in which in
+equilibrium each agent behaves according to the designer's or principal's
+intentions. The designer can either act on behalf of the society, for
+example when collecting taxes for a public project, or she can
+pursue self-interests when, for instance, being an auctioneer.
+
+Since the agents' information is private, the principal faces the
+problem that the agents might lie about their real valuations in
+order to influence the outcome according to their preferences. In
+most cases, whenever such manipulations occur, they damage the
+resulting system-wide welfare \parencite{NiRo00}. Thus, simply asking
+the participants to reveal their preferences is unfavorable.
+Therefore, the principal has to define other rules which lead to
+the desired outcome. The most common solution to this problem is
+to introduce monetary transfers providing incentives for the
+agents to behave truthfully.
+
+In mechanism design two economic areas are joined: \emph{game
+theory} and \emph{social choice theory}. In game theory the
+agents' strategies are analyzed, and in social choice theory an
+outcome is selected according to a set of agents' preferences. The
+outcome in social choice theory is determined by a social choice
+function, which is to be implemented by a mechanism. Formally we
+have a set of possible outcomes $O$ and agents $i \in I$, $|I|=n$.
+Each agent $i$ has a type $\theta_i \in \Theta_i$ reflecting the
+possible preference sequences the agent can have. The type captures
+all of the agent's private information relevant to her decision.
+The agent's utility $u_i(o,\theta_i)$ over each outcome depends on
+her type; while $u_i(o_1,\theta_i)>u_i(o_2,\theta_i)$ means that
+the outcome $o_1$ is preferred over the outcome $o_2$. The social
+choice function maps from the space of all types $\Theta$ to the
+space of all outcomes $O$,
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  f:\Theta_1 \times\Theta_2\times...\times\Theta_n\rightarrow O.
+\end{eqnarray}
+Examples for such social choice functions are allocation problems or political voting
+protocols in which a candidate or a party is chosen. The most common objective of a social choice function is
+the maximization of the social welfare, the so called
+\emph{allocative-efficiency} \parencite{Pa01}. It maximizes the sum of
+all utilities over all agents:
+\begin{eqnarray}
+\label{Efficient}
+% \nonumber to remove numbering (before each equation)
+  f(\theta)=\argmax_{o \in O} \sum_{i \in I} u_i(o,\theta_i).
+\end{eqnarray}
+Another objective is \emph{individual rationality}; the agent's
+payoff is never less when participating in the mechanism than her
+payoff without participating. Additionally there is \emph{Pareto
+optimality}. An outcome is Pareto optimal whenever none of the
+agents could perform better without causing another agent to
+perform worse than in the current situation.
+
+So far, we have learned what a social choice function is, and what
+typical objectives for the choices of outcomes are. Now, a
+mechanism has to be found which implements a given social choice
+function with one or several of these objectives. For this
+purpose, the agents' possible strategies have to be specified
+together with an outcome function based on these strategies. The
+mechanism should guarantee an implementation despite the
+self-interest of the agents \parencite{Pa01}. Mathematically, a
+mechanism $M$ is defined on the strategy spaces $S_i$ of the
+agents:
+\begin{equation}\label{MechanismDefinition}
+  M=((S_1,...S_n),g(\cdot))\\
+  g:S_1\times...\times S_n\rightarrow O,
+\end{equation}
+where $g$ is an outcome function and $S_i$ denotes all strategies
+or actions an agent $i$ is allowed to take. A mechanism implements
+a social choice function if there is an equilibrium strategy
+profile $s^\ast(\cdot)=(s^\ast_1(\cdot),...,s^\ast_n(\cdot))$ of
+the game induced by $M$ so that
+\begin{equation}\label{MechanismImplements}
+    g(s^\ast_1(\theta_1),...,s^\ast_n(\theta_n))=f(\theta_1,...,\theta_n),
+      \quad \forall
+      (\theta_1,...,\theta_n)\in(\Theta_1,...,\Theta_n),
+\end{equation}
+where $s^\ast_i(\theta_i)$ is the strategy agent $i$ with type
+$\theta_i$ plays in the equilibrium. Please note that the
+equilibrium concept is not specified in this definition. It could,
+for example, be a Nash equilibrium. In this case, given the other
+players $j,$ $j \neq i$, conform to the equilibrium strategies
+$s^\ast_j(\theta_j)$, no other player $i$ has an incentive to
+unilaterally deviate from her equilibrium strategy. Other examples
+are the dominant strategy or the Bayes-Nash strategy equilibrium.
+The dominant strategy equilibrium facilitates it for the agents
+since the optimal strategy for an agent is independent of any
+strategies the other agents could play. Thus, the agents do not
+need to speculate about the way the others might behave. Informally,
+we could say that the concept of dominant strategies "removes game
+theory from the problem" \textcite[p.~5]{Pa01}. The Bayes-Nash
+equilibrium is similar to Nash equilibriums, but assumes that
+agents have incomplete information about the opponents' types.
+Therefore, agents use probability functions to speculate about the
+other agents' preferences \parencite{OsRu94}.
+
+\subsection{Revelation Principle and Gibbard-Satterthwaite Theorem}
+In equation \ref{MechanismDefinition}, we see that a mechanism
+defines the available strategies and the function for selecting an
+outcome. It is necessary that these strategies are kept simple so
+that they can be applied by the agents. The easiest strategies
+occur when choosing a \emph{direct mechanism} asking the agents to
+report their types directly to the principal, $S_i=\Theta_i$.
+Direct mechanisms lead to a centralization of the problem as
+agents report their types to a center that determines the outcome
+and reports it back to the agents. On the contrary, when applying
+\emph{indirect mechanisms} agents have to think about how to
+transform their type into a strategy and the latter is reported to
+the mechanism. In other words,
+\begin{quote} "the computations that go on within the mind of any
+bidder in the non-direct mechanism are shifted to become part of
+the mechanism in the direct mechanism". \textcite[p.~712]{McMc87}
+\end{quote}
+When applying these direct mechanisms agents may still lie about
+their true types. Mechanisms which, in contrast, succeed in
+establishing an equilibrium in which all agents tell the truth,
+are called \emph{incentive-compatible}. In this case, it is in the
+interest of all agents to report their true types,
+$s^\ast_i(\theta_i) = \theta_i,~\forall \theta_i \in \Theta_i$.
+Further, if telling the truth is a dominant strategy, the
+mechanism is called \emph{strategy-proof}. As will be shown later
+on, this can be achieved by the \emph{Vickrey-Clarke-Grooves}
+(VCG) mechanism.
+
+We learned that the equilibrium strategy profile $s^\ast(\cdot)$
+does not determine the concept of equilibrium. Some equilibrium
+concept must be chosen and implemented together with the mechanism. In the
+worst case, in order to find out if a certain social choice
+function can be implemented by a certain mechanism with, for
+instance, dominant strategies, one would have to consider all
+possible mechanisms. However, research on mechanism design led to
+the \emph{revelation principle} as a solution to this. It states
+that for any mechanism, there is a direct, incentive-compatible
+mechanism with the same outcome \parencite{McMc87}. An intuitive
+explanation for this principle consists in: the transformation
+from types into strategies, which occurs in the agents' minds in
+indirect mechanisms, and which is used as a filter in the direct mechanism.
+That is, the direct mechanism first filters all reports of the
+agents and simulates the indirect mechanism with the filtered
+input. This principle is valid for the optimal mechanism as well.
+Thus, the search for a mechanism can focus on direct
+mechanisms. Therefore, if no direct mechanism can implement a
+given social choice function, then no indirect mechanism will do
+so.
+
+In contrast to the positive result of the revelation principle,
+there also exists a negative result, the
+\emph{Gibbard-Satterthwaite} theorem. According to it, it is
+impossible to find a mechanism with certain positive
+characteristics. To understand the theorem, first note that a
+social choice function is \emph{truthfully implementable} if and
+only if the dominant strategy is to reveal the truth. Furthermore,
+a social choice function $f$ is \emph{onto} if for each $o \in O$
+at least one element in $\Theta$ exists so that $f$ maps to $o$.
+Finally, a social choice function $f$ is \emph{dictatorial}
+whenever there is a dictator $j$ among the agents so that for all
+outcomes, $o_j$ is strictly preferred to another outcome $o_k$
+whenever the dictator $j$ strictly prefers $o_j$ to $o_k$.
+Obviously, this is an unwanted characteristic. It turns the
+Gibbard-Satterthwaite theorem impractical for real-life mechanisms
+since they allow manipulation.
+
+\textbf{Gibbard-Satterthwaite Theorem:} \emph{Given $O$ is finite,
+$|O|\geq 3$, and the social choice function $f$ is onto, then $f$
+is truthfully implementable in dominant strategies if and only if
+f is dictatorial}.
+
+According to the theorem it is impossible to elicit the truth if
+dominant strategies exist. However, despite this result, the
+theorem can be circumvented by placing restrictions on the agents'
+preferences, the way it is done in the VCG mechanism.
+
+\subsection{Vickrey-Clarke-Grooves Mechanism}
+The VCG mechanism combines the following important virtues by
+introducing a special payment scheme. First, it implements social
+choice functions in dominant strategies. Thus, agents do not have
+to speculate which strategies the other agents might play, and
+they do not need to waste resources on learning about their
+competitors' strategies. Second, the mechanism does not have to
+make any assumptions about the information agents have on each
+other. And, third, the VCG mechanism is allocative-efficient (see
+equation \ref{Efficient}), strategy-proof and non-dictatorial.
+
+AND SO ON... 
