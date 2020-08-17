@@ -10,4 +10,4 @@ Beste Grüße
 Ihr Professur Team.
 
 ### Ansprechpersonen
-Vewaltet von: Pascal Heßler. PascalHessler@wirtschaft.uni-giessen.de
+Vewaltet von: Pascal Heßler. Pascal.Hessler@wirtschaft.uni-giessen.de
