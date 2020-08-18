@@ -29,12 +29,11 @@
 % ------------------------------------------------------------------------
 % Literatur
 % ------------------------------------------------------------------------
-% Achtung zur Einbindung der Literatur wird hier Biber verwendet und nich der Standard BibTex. In Sublime bracu man nichts verändern.
+% Achtung zur Einbindung der Literatur wird hier Biber verwendet und nich der Standard BibTex. In Sublime brauch man nichts verändern.
 % 1. Sicherstellen, dass Biber installiert ist ->  in Tex Live vorinstalliert
 % 2. Stellt eure Schreibumgebung um -> In TeXstudio: Optionen -> TeXstudio konfigurieren -> Erzeugen -> Standard Bibliographieprogramm
 \usepackage[backend=biber,style=apa,natbib=false]{biblatex}
-\DeclareLanguageMapping{american}{american-apa}         % Sprach Einstellung
-%\DeclareLanguageMapping{ngerman}{ngerman-apa}          % Deutsche Alternative
+\DeclareLanguageMapping{american}{american-apa}         % Zitier Einstellung, bleibt auch im Deutschen!
 \addbibresource{BibliographieAbschlussarbeit.bib}       % Legt die Datei fest in der die Literatur liegt (z. B.: Export aus Citavi)
 \usepackage{breakcites}                                 % Falls Zitationen nicht ans Zeilenende passen
 \usepackage{csquotes}                                   % Erweitert die Möglichkeiten beim zitieren
