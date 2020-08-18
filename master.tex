@@ -22,7 +22,7 @@
 \usepackage[paper=a4paper,left=30mm,right=30mm,top=40mm,bottom=40mm]{geometry}
 \usepackage[utf8]{inputenc}       % Damit können Umlaute ganz normal geschrieben werden.
 % \usepackage[english]{babel}     % Verwende deutsche, bzw. amerikanische Silbentrennung
-\usepackage[ngerman]{babel}       % Deutsche Alternative
+\usepackage[ngerman]{babel}       % Deutsche AlternativeMcMc87
 \usepackage{scrlayer-scrpage}     % Paket für Kopf und Fußzeile. Kommentar: "scrpage2" veraltet in "scrlayer-scrpage" geändert
 \pagestyle{scrheadings}           % Kopzeilenseitenstil
 \usepackage{setspace}             % Zeilenabstand imlpementiert den Befehl 
@@ -35,7 +35,8 @@
 \usepackage[backend=biber,style=apa,natbib=true]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}         % Sprach Einstellung
 %\DeclareLanguageMapping{ngerman}{ngerman-apa}          % Deutsche Alternative
-\addbibresource{BibliographieAbschlussarbeit.bib}       % Legt die Datei fest in der die Literatur liegt (z. B.: Export aus Citavi)
+% \addbibresource{BibliographieAbschlussarbeit.bib}       % Legt die Datei fest in der die Literatur liegt (z. B.: Export aus Citavi)
+\bibliography{BibliographieAbschlussarbeit.bib}
 \usepackage{breakcites}                                 % Falls Zitationen nicht ans Zeilenende passen
 \usepackage{csquotes}                                   % Erweitert die Möglichkeiten beim zitieren
 % ------------------------------------------------------------------------
@@ -132,6 +133,7 @@
 \include{chapters/formel}
 \include{chapters/tabels}
 \include{chapters/abbildungen}
+\include{chapters/zitieren}
 % ------------------------------------------------------------------------
 % Hauptarbeit ENDE
 % ------------------------------------------------------------------------
