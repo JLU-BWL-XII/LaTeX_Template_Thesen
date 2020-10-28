@@ -3,8 +3,8 @@
                             Document stats.
 ········································································
     Threshold:                   2
-    Total number of words:       2029
-    Number of unique words:      720
-    Number of normalized pages:  6.76
+    Total number of words:       1945
+    Number of unique words:      672
+    Number of normalized pages:  6.48
 ········································································
 
