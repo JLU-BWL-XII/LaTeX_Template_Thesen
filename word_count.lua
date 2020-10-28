@@ -153,7 +153,7 @@ local f_dump = [[
     Threshold:                   %d
     Total number of words:       %d
     Number of unique words:      %d
-    Number of normalized pages:  %.2f
+    Number of norm pages:  %.2f
 ········································································
 
 ]]
@@ -177,12 +177,12 @@ local dump_relativ = function ()
   tex.print(tonumber(string.format("%.2f", collected.total/300)) )
 
 end
-local pritty_result = function ()
-  tex.print('Insgesamt wurden ' .. collected.total .. ' Wörter gezählt. Dies entspricht ca. ' .. tonumber(string.format("%.2f", collected.total/300)) .. ' normalisierten Seiten.')
+local pretty_result = function ()
+  tex.print('Insgesamt wurden ' .. collected.total .. ' Wörter gezählt. Dies entspricht ca. ' .. tonumber(string.format("%.2f", collected.total/300)) .. ' Norm Seiten.')
 
 end
 
 
 word_count.dump_total_word_count = dump_total
 word_count.dump_relativ_word_count = dump_relativ
-word_count.pritty_result = pritty_result
+word_count.pretty_result = pretty_result
