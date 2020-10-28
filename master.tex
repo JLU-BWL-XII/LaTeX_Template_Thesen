@@ -73,6 +73,54 @@
 % \newcolumntype{x}[1]{!{\centering\arraybackslash\vrule width #1}}
 
 % ------------------------------------------------------------------------
+% Lua Wordcount
+% ------------------------------------------------------------------------
+\usepackage{luacode}
+% loads lua script
+\directlua{dofile(kpse.find_file"word_count.lua")}
+% defining latex commands to use lua functions easier 
+\def\setwordthreshold#1{
+  \directlua{packagedata.word_count.set_threshold(\number#1)}%
+}
+
+\def\startwordcount{
+  \directlua{
+    luatexbase.add_to_callback(
+    "pre_linebreak_filter",
+    packagedata.word_count.callback,
+    "word_count"
+    )
+  }
+}
+
+\def\stopwordcount{
+  \endgraf %% force paragraph
+  \directlua{
+    luatexbase.remove_from_callback(
+    "pre_linebreak_filter",
+    "word_count"
+    )
+  }
+}
+
+% Creates Logfile
+\def\dumpwordcount{%
+  \directlua{packagedata.word_count.dump_total_word_count()}
+}
+% This returns the normalized sides at the current position
+\def\dumprelativwordcount{%
+  \directlua{packagedata.word_count.dump_relativ_word_count()}%
+}
+
+% This returns the word count at the current position.
+\def\currentwordcount{%
+  \directlua{packagedata.word_count.current_word_count()}
+}
+
+% Text result
+\def\prittyresult{\directlua{packagedata.word_count.pritty_result()}}
+
+% ------------------------------------------------------------------------
 % Sonstige
 % ------------------------------------------------------------------------
 \usepackage{scrhack}        % Löst unnötige Warnungen!
@@ -126,13 +174,22 @@
 % ------------------------------------------------------------------------
 % Hauptarbeit (hier werden alle Kapitel eingebunden)
 % ------------------------------------------------------------------------
+\setwordthreshold{2}                   % min chars in a row to count as word
+\startwordcount                        % start counting words
+
 \mainmatter                            % Hauptteil, Kapitel lateinisch nummeriert
 \onehalfspacing
 % Theoretisch kann man auch alles in einem Dokument haben. Das ist jedoch unübersichtlich. Daher werden hier die einzelnen Kapitel eingebunden.
 \include{chapters/introduction}
 \include{chapters/figurestables}
+
 \include{chapters/combinatorialAuctions}
+
 \include{chapters/conclusion}
+
+\stopwordcount                         % stopwordcount
+\dumpwordcount                         % Cretaes log file
+\prittyresult                          % Gibt im fließtext Anzahl Wörter /Seiten aus --> Auskommentieren für die Abgabe!
 % ------------------------------------------------------------------------
 % Hauptarbeit ENDE
 % ------------------------------------------------------------------------
@@ -144,12 +201,12 @@
 % ------------------------------------------------------------------------
 % Einbinden des Anhangs
 % ------------------------------------------------------------------------
-\appendix                               % Kapitel werden ab hier Alphabetisch aufgenommen
+\appendix                              % Kapitel werden ab hier Alphabetisch aufgenommen
 \include{chapters/appendix}
 % ------------------------------------------------------------------------
 % Einbinden der Eidesstaatlichen Erklärung
 % ------------------------------------------------------------------------
-\backmatter                             % Ab hier wird nichts mehr ins Inhaltsverzeichnis aufgenommen
+\backmatter                            % Ab hier wird nichts mehr ins Inhaltsverzeichnis aufgenommen
 \include{chapters/erklaerung}
 
 \end{document}
