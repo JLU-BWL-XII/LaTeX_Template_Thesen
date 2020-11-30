@@ -5,6 +5,6 @@
     Threshold:                   2
     Total number of words:       1945
     Number of unique words:      672
-    Number of normalized pages:  6.48
+    Number of norm pages:  6.48
 ········································································
 
