@@ -153,7 +153,7 @@ local f_dump = [[
     Threshold:                   %d
     Total number of words:       %d
     Number of unique words:      %d
-    Number of norm pages:  %.2f
+    Number of norm pages:        %.2f
 ········································································
 
 ]]
