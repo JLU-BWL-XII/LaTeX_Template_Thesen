@@ -1,14 +1,15 @@
 % ------------------------------------------------------------------------
 % Template zur Erstellung von Abschlussarbeiten an der Professur für
 % Digitalisierung, E-Business und Operations Management
-% Erstellerin: Jella Pfeiffer
-% Datum 08.10.2019
-% Überarbeitet von Pascal Heßler am 13.08.2020
+% Erstellerin: Jella Pfeiffer (Datum 08.10.2019)
+% Überarbeitet von: Pascal Heßler, Paul Herbst
+% zuletzt überarbeitet von: Pascal Heßler  am 05.03.2025
 % ------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------
 % Allgemeine Einstellungen
 % ------------------------------------------------------------------------
+\listfiles
 \documentclass[
     12pt,
     paper=a4,
@@ -17,12 +18,12 @@
     listof=totoc,                 % Listen im Inhaltsverzeichnis aufnehmen
     bibliography=totoc,           % Literaturverzeichnis ins Inhltsvz. aufnehmen
     headsepline                   % Trennlinie unter Kopfzeile
-    ]{scrbook}
+    ]{article}
 
 \usepackage[paper=a4paper,left=30mm,right=30mm,top=40mm,bottom=40mm]{geometry}
 \usepackage[utf8]{inputenc}       % Damit können Umlaute ganz normal geschrieben werden.
-% \usepackage[english]{babel}     % Verwende deutsche, bzw. amerikanische Silbentrennung
-\usepackage[ngerman]{babel}       % Deutsche Alternative
+\usepackage[english]{babel}     % Verwende deutsche, bzw. amerikanische Silbentrennung
+%\usepackage[ngerman]{babel}       % Deutsche Alternative
 \usepackage{scrlayer-scrpage}     % Paket für Kopf und Fußzeile. Kommentar: "scrpage2" veraltet in "scrlayer-scrpage" geändert
 \pagestyle{scrheadings}           % Kopzeilenseitenstil
 \usepackage{setspace}             % Zeilenabstand imlpementiert den Befehl 
@@ -34,7 +35,7 @@
 % 2. Stellt eure Schreibumgebung um -> In TeXstudio: Optionen -> TeXstudio konfigurieren -> Erzeugen -> Standard Bibliographieprogramm
 \usepackage[backend=biber,style=apa,natbib=false]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}         % Zitier Einstellung, bleibt auch im Deutschen!
-\addbibresource{BibliographieAbschlussarbeit.bib}       % Legt die Datei fest in der die Literatur liegt (z. B.: Export aus Citavi)
+\addbibresource{test.bib}       % Legt die Datei fest in der die Literatur liegt (z. B.: Export aus Citavi)
 \usepackage{breakcites}                                 % Falls Zitationen nicht ans Zeilenende passen
 \usepackage{csquotes}                                   % Erweitert die Möglichkeiten beim zitieren
 % ------------------------------------------------------------------------
@@ -42,7 +43,6 @@
 % ------------------------------------------------------------------------
 \usepackage{amssymb}
 \usepackage{amsmath}        % Formattierung von Tabellen und Matritzen
-\usepackage{amsfonts}
 
 % ------------------------------------------------------------------------
 % Grafiken
@@ -59,6 +59,21 @@
 \usepackage{booktabs}       % Tabellen Midline Topline etc.
 \usepackage{float}          % Tabelen Positionierung
 \usepackage{longtable}      % Ermöglicht Tabellen über mehrere Seiten hinweg, so dass sie noch dasselbe Format besitzten ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/required/tools/longtable.pdf
+
+% ------------------------------------------------------------------------
+% Abkürzungen und Glossar
+% VERWENDUNG: Hier die Abkürzungen definieren und im Text verwenden mit \gls{AI} oder \glspl{AI} für Plural
+% Zur Aktualisierung "makeglossaries" bzw. "makeglossaries master" ausführen und dann nochmal kompilieren
+% ------------------------------------------------------------------------
+\usepackage[acronym,toc,nonumberlist]{glossaries} % Ermöglicht die Verwendung von Abkürzungen und Glossar
+
+\makeglossaries
+
+\newacronym{ai}{AI}{Artificial Intelligence}        % Hier werden die Abkürzungen definiert
+\newacronym{ml}{ML}{Machine Learning}
+\newacronym{nlp}{NLP}{Natural Language Processing}
+\newacronym{ca}{CA}{Combinatorial Auctions}
+
 % **********************************************************************************************************************
 % Folgende Pakete sind rein optional und etwas komplexer in ihrer Umsetzung nur für etwas erfahrenere LaTeX User
 % **********************************************************************************************************************
@@ -71,6 +86,7 @@
 % \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}         % Zentriert mit Breitenangabe
 % \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}        % Rechtsbündig mit Breitenangabe
 % \newcolumntype{x}[1]{!{\centering\arraybackslash\vrule width #1}}
+
 
 % ------------------------------------------------------------------------
 % Lua Wordcount
@@ -132,12 +148,17 @@
 \usepackage{framed}         % Einrahmen von Texten mit der shaded-Umgebung.
 
 \usepackage{pdflscape}      % Querformat möglich über \begin{landscape} \end{landscape}
+\usepackage{tikz}           % need for tikzpicture
+
+
+
 % ------------------------------------------------------------------------
 % Fein Justierungen
 % ------------------------------------------------------------------------
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \renewcommand{\floatpagefraction}{.9}     % vorher: .5
+
 \newenvironment{packed_enum}{
 \begin{enumerate}
   \setlength{\itemsep}{1pt}
@@ -148,7 +169,6 @@
 %\setlength{\parindent}{0pt}                    % Kein Einzug beim Absatzbegin
 \setlength{\parskip}{1pt plus 0pt minus 1pt}    % Abstand zwischen 2 Absätzen
 
-
 % Kapitel Überschriften in Schriftart mit Serifen
 \setkomafont{sectioning}{\normalfont\normalcolor\bfseries}
 % Gestaltung der Kopfzeilen
@@ -156,40 +176,104 @@
 \setkomafont{pagehead}{\normalfont\bfseries}
 %\setkomafont{pagenumber}{\normalfont\bfseries} \automark{section}
 
+%% ---------------------------------
+%% | Information about the thesis  |
+%% ---------------------------------
+
+\newcommand{\mytype}{Seminar / Master / Bachelor Thesis}
+
+\newcommand{\myname}{Your Name}
+\newcommand{\matricle}{matriculation number}
+\newcommand{\mytitleen}{Title of the Thesis in English }
+\newcommand{\mytitlede}{Title of the Thesis in German }
+
+\newcommand{\myinstitute}{At the Department of Economics and Management \\ Institute for Information Systems (WIN) \\  Information Systems III   }
+
+\newcommand{\reviewerone}{Prof. Dr. Jella Pfeiffer}
+\newcommand{\supervisor}{Vorname Nachname}
+\newcommand{\submissiontime}{Date of Submission}
+
+%% -------------------------------
+%% |  Information for PDF file   |
+%% -------------------------------
+%% IM: Auto-Fill this information
+\hypersetup{
+ pdfauthor={\myname},
+ pdftitle={\mytitleen},
+ pdfsubject={\mytype},
+ pdfkeywords={\mytype}
+}
+
+
 \hypersetup{hidelinks}                 % Versteckt die Links im PDF (optisch)
 % ----- ende der präambel ----------------------------------
 % Start des Dokuments
 % ----------------------------------------------------------
 \begin{document} 
-\frontmatter                           % Corspann, Kapitel römisch nummeriert
+\pagenumbering{Alph}                  % Löst unnötigen Warnungen
+\include{sections/titel}              % Titelseite einbinden
 
-\include{chapters/titel}               % Titelseite einbinden
-\include{chapters/abstract}            % Abstract einbinden
-\tableofcontents                       % Fügt Inhaltsverzeichnis ein
-\include{chapters/keywords}            % Fügt Stichwortverzeichnis ein    (nur wenn nötig)
-\listoffigures                         % Fügt Abbildungsverzeichnis ein   (nur wenn nötig)
-\listoftables                          % Fügt Tabellenverzeichnis ein     (nur wenn nötig)
-\include{chapters/abbreviations}       % Beispiel eines handerstellten Verzeichnisses Kommentar: Abkürzungsverzeichnisse können auch über \usepackage[acronyms, shortcuts, translate=babel, nomain]{glossaries} generiert werden.
+
+\pagenumbering{Roman}                 % Löst unnötigen Warnungen
+\setcounter{page}{2}                  % setzt die Seitenzahl auf 2
+% ------------------------------------------------------------------------
+% Verzeichnisse
+% ------------------------------------------------------------------------
+\tableofcontents                                                % Inhaltsverzeichnis einbinden
+\newpage
+\printglossary[type=\acronymtype]  % Abkürzungsverzeichnis einbinden
+\newpage
+
+
+% settings for word counting
+\setwordthreshold{2}                   % min chars in a row to count as word
+\startwordcount                        % start counting words
 
 % ------------------------------------------------------------------------
 % Hauptarbeit (hier werden alle Kapitel eingebunden)
 % ------------------------------------------------------------------------
-\setwordthreshold{2}                   % min chars in a row to count as word
-\startwordcount                        % start counting words
+\pagenumbering{arabic}                  % Löst unnötige Warnungen
+\setstretch{1.5}
 
-\mainmatter                            % Hauptteil, Kapitel lateinisch nummeriert
-\onehalfspacing
-% Theoretisch kann man auch alles in einem Dokument haben. Das ist jedoch unübersichtlich. Daher werden hier die einzelnen Kapitel eingebunden.
-\include{chapters/introduction}
-\include{chapters/figurestables}
+\include{sections/introduction}
+\include{sections/abbreviations}
+\include{sections/figurestables}
+\include{sections/citations}
+\include{sections/Bibliography}
+\include{sections/combinatorialAuctions}
+\include{sections/erklaerung}
+\include{sections/ki}
 
-\include{chapters/combinatorialAuctions}
+% ------------------------------------------------------------------------
+% Hauptarbeit ENDE
+% ------------------------------------------------------------------------
 
-\include{chapters/conclusion}
 
+% settings for word counting
 \stopwordcount                         % stopwordcount
 \dumpwordcount                         % Cretaes log file
 \prettyresult                          % Gibt im Fließtext Anzahl Wörter /Seiten aus --> Auskommentieren für die Abgabe!
+
+
+%% ------------------------------------------------------------------------
+%% Hauptarbeit (hier werden alle Kapitel eingebunden)
+%% ------------------------------------------------------------------------
+%\setwordthreshold{2}                   % min chars in a row to count as word
+%\startwordcount                        % start counting words
+%
+%\mainmatter                            % Hauptteil, Kapitel lateinisch nummeriert
+%\onehalfspacing
+%% Theoretisch kann man auch alles in einem Dokument haben. Das ist jedoch unübersichtlich. Daher werden hier die einzelnen Kapitel eingebunden.
+%\include{chapters/introduction}
+%\include{chapters/figurestables}
+%
+%\include{chapters/combinatorialAuctions}
+%
+%\include{chapters/conclusion}
+%
+%\stopwordcount                         % stopwordcount
+%\dumpwordcount                         % Cretaes log file
+%\prettyresult                          % Gibt im Fließtext Anzahl Wörter /Seiten aus --> Auskommentieren für die Abgabe!
 % ------------------------------------------------------------------------
 % Hauptarbeit ENDE
 % ------------------------------------------------------------------------
@@ -201,6 +285,9 @@
 % ------------------------------------------------------------------------
 % Einbinden des Anhangs
 % ------------------------------------------------------------------------
+\pagenumbering{Roman}
+\setcounter{page}{6}                  % ggfs. anpassen wenn Inhaltsverzeichnis länger als eine Seite
+
 \appendix                              % Kapitel werden ab hier Alphabetisch aufgenommen
 \include{chapters/appendix}
 % ------------------------------------------------------------------------

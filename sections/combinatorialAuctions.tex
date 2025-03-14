@@ -1,8 +1,8 @@
 %!TEX root = ../master.tex
-\chapter{Combinatorial Auctions}
+\section{Combinatorial Auctions}
 \label{chap:combinatorialAuctions}
 
-Die ist der Ausschnitt eines Beispielkapitels.
+This is an excerpt from a sample chapter.
 
 \emph{Combinatorial auctions} (CAs) are a part of electronic
 market design. Research in electronic market design joins two
@@ -16,9 +16,9 @@ background in computer science than in economics. Thus, in this
 chapter we will point out the main ideas of the economical
 perspective to provide some basic knowledge in this area.
 
-\section{Mechanism Design}
-\subsection{Definition}
-Mechanism design was introduced by \textcite{Hu60}. It
+\subsection{Mechanism Design}
+\subsubsection{Definition}
+Mechanism design was introduced by \textcite{Knapp.2011}. It
 aims at implementing system-wide solutions to problems in
 non-cooperative environments with multiple self-interested agents.
 Such problems can be political elections, public projects in which
@@ -34,7 +34,7 @@ Since the agents' information is private, the principal faces the
 problem that the agents might lie about their real valuations in
 order to influence the outcome according to their preferences. In
 most cases, whenever such manipulations occur, they damage the
-resulting system-wide welfare \parencite{NiRo00}. Thus, simply asking
+resulting system-wide welfare \parencite{Grant.2011}. Thus, simply asking
 the participants to reveal their preferences is unfavorable.
 Therefore, the principal has to define other rules which lead to
 the desired outcome. The most common solution to this problem is
@@ -63,7 +63,7 @@ space of all outcomes $O$,
 Examples for such social choice functions are allocation problems or political voting
 protocols in which a candidate or a party is chosen. The most common objective of a social choice function is
 the maximization of the social welfare, the so called
-\emph{allocative-efficiency} \parencite{Pa01}. It maximizes the sum of
+\emph{allocative-efficiency} \parencite{Bastian.2011}. It maximizes the sum of
 all utilities over all agents:
 \begin{eqnarray}
 \label{Efficient}
@@ -84,7 +84,7 @@ function with one or several of these objectives. For this
 purpose, the agents' possible strategies have to be specified
 together with an outcome function based on these strategies. The
 mechanism should guarantee an implementation despite the
-self-interest of the agents \parencite{Pa01}. Mathematically, a
+self-interest of the agents \parencite{Bastian.2011}. Mathematically, a
 mechanism $M$ is defined on the strategy spaces $S_i$ of the
 agents:
 \begin{equation}\label{MechanismDefinition}
@@ -114,13 +114,13 @@ since the optimal strategy for an agent is independent of any
 strategies the other agents could play. Thus, the agents do not
 need to speculate about the way the others might behave. Informally,
 we could say that the concept of dominant strategies "removes game
-theory from the problem" \textcite[p.~5]{Pa01}. The Bayes-Nash
+theory from the problem" \textcite[p.~5]{Bastian.2011}. The Bayes-Nash
 equilibrium is similar to Nash equilibriums, but assumes that
 agents have incomplete information about the opponents' types.
 Therefore, agents use probability functions to speculate about the
-other agents' preferences \parencite{OsRu94}.
+other agents' preferences \parencite{Epley.2007}.
 
-\subsection{Revelation Principle and Gibbard-Satterthwaite Theorem}
+\subsubsection{Revelation Principle and Gibbard-Satterthwaite Theorem}
 In equation \ref{MechanismDefinition}, we see that a mechanism
 defines the available strategies and the function for selecting an
 outcome. It is necessary that these strategies are kept simple so
@@ -135,7 +135,7 @@ transform their type into a strategy and the latter is reported to
 the mechanism. In other words,
 \begin{quote} "the computations that go on within the mind of any
 bidder in the non-direct mechanism are shifted to become part of
-the mechanism in the direct mechanism". \textcite[p.~712]{McMc87}
+the mechanism in the direct mechanism". \textcite[p.~712]{Bastian.2011}
 \end{quote}
 When applying these direct mechanisms agents may still lie about
 their true types. Mechanisms which, in contrast, succeed in
@@ -157,7 +157,7 @@ instance, dominant strategies, one would have to consider all
 possible mechanisms. However, research on mechanism design led to
 the \emph{revelation principle} as a solution to this. It states
 that for any mechanism, there is a direct, incentive-compatible
-mechanism with the same outcome \parencite{McMc87}. An intuitive
+mechanism with the same outcome \parencite{Bastian.2011}. An intuitive
 explanation for this principle consists in: the transformation
 from types into strategies, which occurs in the agents' minds in
 indirect mechanisms, and which is used as a filter in the direct mechanism.
@@ -196,7 +196,7 @@ dominant strategies exist. However, despite this result, the
 theorem can be circumvented by placing restrictions on the agents'
 preferences, the way it is done in the VCG mechanism.
 
-\subsection{Vickrey-Clarke-Grooves Mechanism}
+\subsubsection{Vickrey-Clarke-Grooves Mechanism}
 The VCG mechanism combines the following important virtues by
 introducing a special payment scheme. First, it implements social
 choice functions in dominant strategies. Thus, agents do not have

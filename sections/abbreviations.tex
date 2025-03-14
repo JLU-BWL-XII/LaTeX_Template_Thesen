@@ -1,0 +1,11 @@
+%!TEX root = ../master.tex
+
+\subsection{Die Erstellung und Verwendung von Abkürzungen} \label{chap:abbreviations}
+Dieses Kapitel demonstriert die Verwendung des \emph{glossaries} packages zur automatischen Verwaltung von Abkürzungen. Abkürzungen werden in der Präambel in der Datei \emph{master.tex} definiert.
+
+\gls{ai} is a broad field focusing on the creation of smart machines. The growth of \gls{ai} and \gls{ml} has led to significant advancements in \gls{nlp}.
+
+\gls{ai} is a broad field focusing on the creation of smart machines. The growth of \glspl{ai} and \gls{ml} has led to significant advancements in \gls{nlp}.
+
+
+Wichtig: damit die Abkürzungen korrekt im Abkürzungsverzeichnis erscheinen, muss der Befehl \emph{makeglossaries} bzw. \emph{makeglossaries master} in der Konsole ausgeführt werden. Anschließend muss das Dokument neu kompiliert werden.

@@ -1,0 +1,60 @@
+%% titlepage.tex
+%%
+
+% coordinates for the bg shape on the titlepage
+\newcommand{\diameter}{20}
+\newcommand{\xone}{-15} % start left
+\newcommand{\xtwo}{150} % ende right
+\newcommand{\yone}{20} % start top
+\newcommand{\ytwo}{-230} % end bottom
+
+\begin{titlepage}
+    \begin{onehalfspace}
+
+% bg shape
+        \begin{tikzpicture}[overlay]
+            \draw[color=gray]
+            (\xone mm, \yone mm)
+            -- (\xtwo mm, \yone mm)
+            arc (90:0:\diameter pt)
+            -- (\xtwo mm + \diameter pt , \ytwo mm)
+            -- (\xone mm + \diameter pt , \ytwo mm)
+            arc (270:180:\diameter pt)
+            -- (\xone mm, \yone mm);
+        \end{tikzpicture}
+
+        \vspace{-1cm}
+        \includegraphics[width = 0.25\linewidth]{graphics/KITLogo.png}%
+        \hfill
+        \includegraphics[width =  0.25\linewidth ]{graphics/win_logo_en_transparent}
+        \vspace*{0.5cm}
+        \hline
+        \vspace*{1cm}
+        \begin{center}
+            \Huge{\mytitleen} \\
+            \Huge{---}\\
+            \Huge{\mytitlede} \\
+            \vspace{1cm}
+            \normalsize{ \mytype\\ of \\}
+
+            \vspace*{1cm}
+            \large{\myname}\\
+            \large{\submissiontime}\\
+            \large{\matricle}\\
+            \vspace*{2cm}
+            \large{  \myinstitute}
+
+        \end{center}
+        \vspace*{1cm}
+        \normalsize{
+            \begin{center}
+                \begin{tabular}[ht]{l c l}
+                    Reviewer: & \hfill & \reviewerone \\\
+                    Advisor:  & \hfill & \supervisor  \\
+                \end{tabular}
+            \end{center}
+        }
+
+
+    \end{onehalfspace}
+\end{titlepage}
