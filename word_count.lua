@@ -161,7 +161,7 @@ local f_dump = [[
 local dump_total = function ()
   --print(table.serialize(collected))
   -- tex.print(collected.total)
-  file = io.open('log_lua.txt', 'w')
+  file = io.open('word_count.txt', 'w')
   file:write(stringformat(f_dump,
                          word_count.threshold,
                          collected.total,
@@ -178,7 +178,7 @@ local dump_relativ = function ()
 
 end
 local pretty_result = function ()
-  tex.print('Insgesamt wurden ' .. collected.total .. ' Wörter gezählt. Dies entspricht ca. ' .. tonumber(string.format("%.2f", collected.total/300)) .. ' Norm Seiten.')
+  tex.print('In general ' .. collected.total .. ' words counted. This is equivalent to ' .. string.format("%.2f", collected.total/300) .. ' norm pages.')
 
 end
 

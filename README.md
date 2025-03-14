@@ -1,23 +1,26 @@
-# LaTeX Vorlage für Thesen
-### Professur für Digitaliserung, E-Buisness und Operations Management
-Liebe Studierende im folgenden finden Sie die LaTeX Vorlage für das wissenschaftliche Arbeiten an der Professur BWL XII.   
+# LaTeX Template for theses
+### Chair of Information Systems III 
+Dear students, below you will find the LaTeX template for academic work at the Chair of Information Systems III.
 
-Bitte nehmen Sie zur Kentniss, dass Sie die Vorlage nach Ihrem belieben ändern können, solange Sie die Formalien der Professur einhalten.
+Please note that you can change the template as you wish as long as you adhere to the formalities of the professorship.
 
-Falls Fehler in der Vorlage vorhanden sind, bitten wir Sie uns auf diese hinzuweisen.
+If there are any errors in the template, please point them out to us.
 
-Beste Grüße
-Ihr Professur Team.
+Best regards
+Your Professorship Team.
 
-### Wörterzählen
-Seit dem neuen Standard werden nicht mehr direkt die Seitengezählt sondern die Anzahl Wörter. Weiterhin gilt, dass eine normalisierte Seite 300 Wörter beinhaltet. Wenn Ihnen nun ein Seitenlimit von beispielsweise 40 Seiten gesetzt wird, hat dies zur Folge, dass Sie 300 * 40 = 12.000 Wörter in ihrer Arbeit haben müssen (+- 10 %).
+### Word count
+We are using word count to make different formats (e.g. Word) better comparable. For this we are counting the words in these document.
 
-Die aktuelle LaTeX Version unterstützt Wörterzählen, mittels LuaLaTeX.
+The current LaTeX version supports word counting, using LuaLaTeX.
 
-### Vorraussetzungen
-Damit die Vorlage einwandfrei funktioniert, müssen zwei Einstellungen gesetzt werden.
-- Anstelle von pdflatex verwenden Sie lualatex
-- Anstelle bibtex verwenden Sie biber
+### Prerequisites
+Two settings must be made for the template to work properly.
+- Instead of pdflatex use lualatex
+- Use biber instead of bibtex
 
-### Ansprechpersonen
-Vewaltet von: Pascal Heßler. Pascal.Hessler@wirtschaft.uni-giessen.de
+### Additional Information
+We are using the package _glossaries_ to make the creation of abbreviations simpler. Be aware that you have to run makeglossarieslite to update the glossarie. 
+
+### Contact persons
+Managed by: Dr. Pascal Heßler [Pascal.Hessler@kit.edu](mailto:Pascal.Hessler@kit.edu).
