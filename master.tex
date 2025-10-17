@@ -1,8 +1,9 @@
 % ------------------------------------------------------------------------
-% Template for seminar and thesis at the Win 3 chair
+% Template zur Erstellung von Abschlussarbeiten an der Professur für
+% Digitalisierung, E-Business und Operations Management
 % Erstellerin: Jella Pfeiffer (Datum 08.10.2019)
 % Überarbeitet von: Pascal Heßler, Paul Herbst
-% zuletzt überarbeitet von: Pascal Heßler  am 22.07.2025
+% zuletzt überarbeitet von: Pascal Heßler  am 17.10.2025
 % ------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------
@@ -154,9 +155,6 @@
 % ------------------------------------------------------------------------
 % Fein Justierungen
 % ------------------------------------------------------------------------
-\usepackage{fontspec}
-\setmainfont{Latin Modern Roman}
-
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \renewcommand{\floatpagefraction}{.9}     % vorher: .5
@@ -243,6 +241,7 @@
 \include{sections/citations}
 \include{sections/Bibliography}
 \include{sections/combinatorialAuctions}
+\include{sections/wordcount}
 \include{sections/erklaerung}
 \include{sections/ki}
 
@@ -250,42 +249,18 @@
 % Hauptarbeit ENDE
 % ------------------------------------------------------------------------
 
-
 % settings for word counting
 \stopwordcount                         % stopwordcount
 \dumpwordcount                         % Cretaes log file
-\prettyresult                          % Gibt im Fließtext Anzahl Wörter /Seiten aus --> Auskommentieren für die Abgabe!
+% \prettyresult                        % now in it own chapter
 
 
-%% ------------------------------------------------------------------------
-%% Hauptarbeit (hier werden alle Kapitel eingebunden)
-%% ------------------------------------------------------------------------
-%\setwordthreshold{2}                   % min chars in a row to count as word
-%\startwordcount                        % start counting words
-%
-%\mainmatter                            % Hauptteil, Kapitel lateinisch nummeriert
-%\onehalfspacing
-%% Theoretisch kann man auch alles in einem Dokument haben. Das ist jedoch unübersichtlich. Daher werden hier die einzelnen Kapitel eingebunden.
-%\include{chapters/introduction}
-%\include{chapters/figurestables}
-%
-%\include{chapters/combinatorialAuctions}
-%
-%\include{chapters/conclusion}
-%
-%\stopwordcount                         % stopwordcount
-%\dumpwordcount                         % Cretaes log file
-%\prettyresult                          % Gibt im Fließtext Anzahl Wörter /Seiten aus --> Auskommentieren für die Abgabe!
 % ------------------------------------------------------------------------
-% Hauptarbeit ENDE
-% ------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------
-% Erstellen des Literaturverzeichnisses
+% Generating References
 % ------------------------------------------------------------------------
 \printbibliography[heading=bibintoc]  
 % ------------------------------------------------------------------------
-% Einbinden des Anhangs
+% Adding Appendix
 % ------------------------------------------------------------------------
 \pagenumbering{Roman}
 \setcounter{page}{6}                  % ggfs. anpassen wenn Inhaltsverzeichnis länger als eine Seite
@@ -295,7 +270,6 @@
 % ------------------------------------------------------------------------
 % Einbinden der Eidesstaatlichen Erklärung
 % ------------------------------------------------------------------------
-\backmatter                            % Ab hier wird nichts mehr ins Inhaltsverzeichnis aufgenommen
 \include{chapters/erklaerung}
 
 \end{document}
