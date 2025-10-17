@@ -22,5 +22,11 @@ Two settings must be made for the template to work properly.
 ### Additional Information
 We are using the package _glossaries_ to make the creation of abbreviations simpler. Be aware that you have to run makeglossarieslite to update the glossarie. 
 
+### Citation
+In text cite use the command `\textcite{bibtexcode}`. And with brackets you should use `\parencite{bibtexcode}`.
+
+### Issues
+One person reported compiling the document with the word counter active created issues. In this version everything works, but you always can just comment out the wordcount.
+
 ### Contact persons
 Managed by: Dr. Pascal Heßler [Pascal.Hessler@kit.edu](mailto:Pascal.Hessler@kit.edu).
